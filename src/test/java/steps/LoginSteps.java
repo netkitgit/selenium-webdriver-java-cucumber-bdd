@@ -1,10 +1,25 @@
 package steps;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Тогда;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginSteps {
+
+    WebDriver driver;
+
+    @Before
+    public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "C:\\Tools\\WebDrivers\\chromedriver.exe");
+        this.driver = new ChromeDriver();
+        this.driver.manage().window().maximize();
+        this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+    }
 
     @Дано("^пользователь заходит на сайт \"([^\"]*)\"$")
     public void пользователь_заходит_на_сайт(String siteName) throws Throwable {
