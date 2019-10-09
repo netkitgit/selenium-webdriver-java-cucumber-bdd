@@ -9,5 +9,8 @@
         <module name="selenium-webdriver-java-cucumber-bdd" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="selenium-webdriver-java-cucumber-bdd" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
